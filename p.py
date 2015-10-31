@@ -1,8 +1,39 @@
-import time, requests
+import time
+import requests
 
 from threading import Thread
 from pySync import Promise, Asyncifyer, ArgCaller
 
+
+################ PROMISE ###############
+# remove ''' from below and at the end of 
+# the block to run example code
+'''
+
+# - LIB - 
+def getFromAmazon():
+  response = requests.get('http://www.amazon.com')
+  return response
+
+def getFrom(a,b,c):
+  url = a
+  url += b
+  url += c
+  response = requests.get(url)
+  print(response)
+
+def d(r):
+  print(r)
+  return
+
+#below is an example for a 'pseudo-promise' with and without arguments
+print('before')
+Promise(getFromAmazon).then(d)
+Promise(getFrom,['http://www','.ama','zon.com']).then(d);
+print('after')
+
+
+'''
 ################ ASYNC #############
 # remove ''' from below and at the end of 
 # the block to run example code
